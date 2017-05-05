@@ -110,6 +110,7 @@ function Traveler() {
 
 function Hunter(name) {
     this.name = name;
+    this.role = 'Hunter';
     this.home = null;
     this.hunger = 50;
     this.sick = false;
@@ -124,6 +125,7 @@ function Hunter(name) {
 
 function Doctor(name) {
     this.name = name;
+    this.role = 'Doctor';
     this.home = null;
     this.hunger = 50;
     this.sick = false;
@@ -138,6 +140,7 @@ function Doctor(name) {
 
 function Gunsmith(name) {
     this.name = name;
+    this.role = 'Gunsmith';
     this.home = null;
     this.hunger = 50;
     this.sick = false;
@@ -152,6 +155,7 @@ function Gunsmith(name) {
 
 function Monk(name) {
     this.name = name;
+    this.role = 'Monk';
     this.home = null;
     this.hunger = 50;
     this.sick = false;
@@ -205,50 +209,50 @@ Doctor.prototype = new Traveler();
 Monk.prototype = new Traveler();
 Gunsmith.prototype = new Traveler();
 
-let jerry = new Hunter('Jerry');
-let elaine = new Doctor('Elaine');
-let kramer = new Monk('Kramer');
-let george = new Gunsmith('George');
+// let jerry = new Hunter('Jerry');
+// let elaine = new Doctor('Elaine');
+// let kramer = new Monk('Kramer');
+// let george = new Gunsmith('George');
 
 
-let wagon1 = new WagonLight(7);
-let wagon2 = new WagonHeavy(5);
+// let wagon1 = new WagonLight(7);
+// let wagon2 = new WagonHeavy(5);
 
-wagon1.join(jerry);
-wagon1.join(elaine);
-wagon1.join(kramer);
-wagon1.join(george);
+// wagon1.join(jerry);
+// wagon1.join(elaine);
+// wagon1.join(kramer);
+// wagon1.join(george);
 
-let mac = new Hunter('Mac');
-let frank = new Gunsmith('Frank');
-let dee = new Monk('Dee');
-let dennis = new Hunter('Dennis');
-let charlie = new Monk('Charlie');
+// let mac = new Hunter('Mac');
+// let frank = new Gunsmith('Frank');
+// let dee = new Monk('Dee');
+// let dennis = new Hunter('Dennis');
+// let charlie = new Monk('Charlie');
 
-wagon2.join(mac);
-wagon2.join(frank);
-wagon2.join(dee);
-wagon2.join(dennis);
-wagon2.join(charlie);
+// wagon2.join(mac);
+// wagon2.join(frank);
+// wagon2.join(dee);
+// wagon2.join(dennis);
+// wagon2.join(charlie);
 
 
 
-function Life1() {
-    for (; wagon1.ready() !== 0;) {
-        wagon1.nextDay();
-    }
-    return [wagon1.day, wagon1.milestraveled];
-}
+// function Life1() {
+//     for (; wagon1.ready() !== 0;) {
+//         wagon1.nextDay();
+//     }
+//     return [wagon1.day, wagon1.milestraveled];
+// }
 
-function Life2() {
-    for (; wagon2.ready() !== 0;) {
-        wagon2.nextDay();
-    }
-    return [wagon2.day, wagon2.milestraveled];
-}
+// function Life2() {
+//     for (; wagon2.ready() !== 0;) {
+//         wagon2.nextDay();
+//     }
+//     return [wagon2.day, wagon2.milestraveled];
+// }
 
-console.log(Life1());
-console.log(Life2());
+// console.log(Life1());
+// console.log(Life2());
 
 module.exports = {
     prob: prob,
@@ -260,6 +264,6 @@ module.exports = {
     Gunsmith: Gunsmith,
     Monk: Monk, 
     Doctor: Doctor,
-    Life1: Life1,
-    Life2: Life2,
+    // Life1: Life1,
+    // Life2: Life2,
 };

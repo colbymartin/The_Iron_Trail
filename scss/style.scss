@@ -2,3 +2,10 @@
 
 @include foundation-global-styles;
 @include foundation-grid; 
+
+body {
+    .hide {
+        display: none;
+    }
+}
+
