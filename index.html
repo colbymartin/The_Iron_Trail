@@ -20,13 +20,14 @@
         <script type="x-mustache-template" id="traveler-template">
             <p>{{ name }}</p>
             <p>{{ role }}</p>
-            <button>Eat</button>
+            <p>{{health}}
+            <button class="eatBtn">Eat</button>
             <button>Hunt</button>
         </script>
         <script type="x-mustache-template" id="statusbar-template">
             <li>
                 <p>Day</p>
-                <p>{{day}}</p>
+                <p class='daydisplay'>{{day}}</p>
             </li>
             <li>
                 <p>Traveler Health</p>
@@ -34,7 +35,7 @@
             </li>
             <li>
                 <p>Food</p>
-                <p>{{food}}</p>
+                <p class="fooddisplay">{{food}}</p>
             </li>
             <li>
                 <p>Ammo</p>

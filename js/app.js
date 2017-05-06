@@ -44,11 +44,28 @@ function GameWagon (wagoninput) {
         travList.innerHTML = Mustache.render(travTemplate, {
             name: wagoninput.passengers[i].name,
             role: wagoninput.passengers[i].role,
+            health: function () {
+                if (wagoninput.passengers[i].sick === true){
+                    return "Sick";
+                } else {
+                    return "Healthy";
+                };
+            },
         });
         parent.appendChild(travList);
-    }
-    
+    }   
+};
+
+function UpdateWagon(wagonid) {
+    let wagonBar = document.querySelector('.GameView ul li');
+    let dayDisplay = document.querySelector('.daydisplay');
+    dayDisplay.textContent = wagonid.day;
+    let foodDisplay = document.querySelector('.fooddisplay');
+    foodDisplay.textContent = wagonid.food;
+    wagonBar.appendChild(dayDisplay);
+    wagonBar.appendChild(foodDisplay);
 }
+
 window.addEventListener('load', function () {
     let wagon = null;
     let travs = [];
@@ -100,5 +117,13 @@ window.addEventListener('load', function () {
         let roleSelect = document.querySelector('.addTravs');
         roleSelect.classList.add('hide');
         GameWagon(wagon);
+        for (let i = 0; i < wagon.passengers.length; i++) {
+            let eatBtn = document.querySelector('.eatBtn');
+            eatBtn.addEventListener('click', function () {
+                wagon.passengers[i].eat();
+                UpdateWagon(wagon);
+            });
+        }
     });
+    
 });
