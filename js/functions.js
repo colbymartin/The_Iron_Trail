@@ -237,12 +237,12 @@ Gunsmith.prototype = new Traveler();
 
 
 
-// function Life1() {
-//     for (; wagon1.ready() !== 0;) {
-//         wagon1.nextDay();
-//     }
-//     return [wagon1.day, wagon1.milestraveled];
-// }
+function Life(wag) {
+    for (; wag.ready() !== 0;) {
+        wag.nextDay();
+    }
+    return [wag.day, wag.milestraveled];
+}
 
 // function Life2() {
 //     for (; wagon2.ready() !== 0;) {
@@ -264,6 +264,5 @@ module.exports = {
     Gunsmith: Gunsmith,
     Monk: Monk, 
     Doctor: Doctor,
-    // Life1: Life1,
-    // Life2: Life2,
+    Life: Life,
 };

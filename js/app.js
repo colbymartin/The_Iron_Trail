@@ -52,19 +52,20 @@ function GameWagon (wagoninput) {
                 };
             },
         });
+        let eatBtn = travList.querySelector('.eatBtn');
+        eatBtn.addEventListener('click', function () {
+            wagoninput.passengers[i].eat();
+            UpdateWagon(wagoninput);
+        });
         parent.appendChild(travList);
     }   
 };
 
 function UpdateWagon(wagonid) {
-    let wagonBar = document.querySelector('.GameView ul li');
-    let dayDisplay = document.querySelector('.daydisplay');
-    dayDisplay.textContent = wagonid.day;
-    let foodDisplay = document.querySelector('.fooddisplay');
-    foodDisplay.textContent = wagonid.food;
-    wagonBar.appendChild(dayDisplay);
-    wagonBar.appendChild(foodDisplay);
-}
+    let parent = document.querySelector('.GameView');
+    parent.innerHTML = '';
+    GameWagon(wagonid);
+};
 
 window.addEventListener('load', function () {
     let wagon = null;
@@ -117,13 +118,6 @@ window.addEventListener('load', function () {
         let roleSelect = document.querySelector('.addTravs');
         roleSelect.classList.add('hide');
         GameWagon(wagon);
-        for (let i = 0; i < wagon.passengers.length; i++) {
-            let eatBtn = document.querySelector('.eatBtn');
-            eatBtn.addEventListener('click', function () {
-                wagon.passengers[i].eat();
-                UpdateWagon(wagon);
-            });
-        }
     });
     
 });
