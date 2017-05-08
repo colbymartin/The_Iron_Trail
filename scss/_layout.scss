@@ -1,0 +1,16 @@
+header {
+    .title {
+        text-align: center;
+    }
+}
+.wagonSelect {
+    h3 {
+        text-align: center;
+    }
+    .wagonBtns {
+        @include grid-row();
+        button {
+            @include grid-column(6);
+        }
+    }
+}

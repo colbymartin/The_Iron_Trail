@@ -57,6 +57,11 @@ function GameWagon (wagoninput) {
             wagoninput.passengers[i].eat();
             UpdateWagon(wagoninput);
         });
+        let huntBtn = travList.querySelector('.huntBtn');
+        huntBtn.addEventListener('click', function () {
+            wagoninput.passengers[i].hunt();
+            UpdateWagon(wagoninput);
+        });
         parent.appendChild(travList);
     }   
 };
@@ -65,6 +70,14 @@ function UpdateWagon(wagonid) {
     let parent = document.querySelector('.GameView');
     parent.innerHTML = '';
     GameWagon(wagonid);
+};
+
+function CheckDead(Wag) {
+    for (let i = 0; i < Wag.passengers.length; i++) {
+        if (Wag.ready() === 0) {
+            alert('GAME OVER: ALL TRAVELERS HAVE PERISHED');
+        }
+    }
 };
 
 window.addEventListener('load', function () {
@@ -118,6 +131,13 @@ window.addEventListener('load', function () {
         let roleSelect = document.querySelector('.addTravs');
         roleSelect.classList.add('hide');
         GameWagon(wagon);
+        let advBtn = document.querySelector('.AdvDay');
+        advBtn.classList.remove('hide');
     });
-    
+    let advBtn = document.querySelector('.AdvDay');
+    advBtn.addEventListener('click', function () {
+        wagon.nextDay();
+        UpdateWagon(wagon);
+        CheckDead(wagon);
+    })
 });

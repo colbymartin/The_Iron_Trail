@@ -3,9 +3,17 @@
 @include foundation-global-styles;
 @include foundation-grid; 
 
+$header-font: 'Press Start 2P', cursive;
+$primary-font: 'VT323', monospace;
+
+@import 'layout';
+@import 'landing';
+
 body {
     .hide {
         display: none;
     }
 }
+
+
 
